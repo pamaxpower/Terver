@@ -10,7 +10,7 @@
 
 import numpy as np
 import scipy.stats as stats
-# Найдем Я для 90 и 95% интервалов
+# Найдем Z для 90 и 95% интервалов
 
 alpha1 = 1-0.9
 alpha2 = 1-0.95

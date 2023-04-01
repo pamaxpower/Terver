@@ -9,12 +9,18 @@
 
 import numpy as np
 import scipy.stats as stats
+from math import factorial as fact
+from math import pow
+
 m1 = 24
-n1 = 24+6
+n1 = 30
 m2 = 3
-n2 = 17+3
+n2 = 20
 p1 = m1/n1
 p2 = m2/n2
+
+def comb (n,k):
+    return fact(n) / (fact(k) * fact(n-k))
 
 def check(m, n):
     p = m/n
@@ -27,9 +33,18 @@ def check(m, n):
         print((L, U))
     else:
         print('Проверка не пройдена. Используйте формулу Бернулли')
+        result = 0
+        for i in range(n+1):
+            c = comb(n,i)
+            result = c * pow(i/n, i) * pow(1-i/n, n-i)
+
+            print(i/n, result)
+            #if result > 0.95:
+                #print(m/n)
         # смотрим картинку и считаем вероятность
         # итог будет [0.04, 0.39]
     
-check(m1, n1)
+#check(m1, n1)
+check(1, 5)
 
 # Вывод интервалы не пересекаются - имеется статитстически значимое различие
